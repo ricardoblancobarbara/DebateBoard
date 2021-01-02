@@ -54,6 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Article\ArticleCreate.cs" />
+    <Compile Include="Article\ArticleDetail.cs" />
+    <Compile Include="Article\ArticleList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
