@@ -46,6 +46,67 @@ namespace DebateBoard.Controllers
             return View(model);
         }
 
+        // GET: Article/Edit/{id}
+        public ActionResult Edit(int id)
+        {
+            var service = new ArticleService();
+            var detail = service.GetArticleById(id);
+            var model =
+                new ArticleEdit
+                {
+                    ArticleId = detail.ArticleId,
+                    Title = detail.Title,
+                    Content = detail.Content
+                };
+            return View(model);
+        }
+        // POST: Article/Edit/{id}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, ArticleEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.ArticleId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = new ArticleService();
+
+            if (service.UpdateArticle(model))
+            {
+                TempData["SaveResult"] = "Your note was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your note could not be updated.");
+            return View(model);
+        }
+
+        // GET: Article/Delete/{id}
+        public ActionResult Delete(int id)
+        {
+            var service = new ArticleService();
+            var model = service.GetArticleById(id);
+            return View(model);
+        }
+        // POST: Article/Delete/{id}
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = new ArticleService();
+
+            service.DeleteArticle(id);
+
+            TempData["SaveResult"] = "Your note was deleted";
+
+            return RedirectToAction("Index");
+        }
+
 
     }
 }

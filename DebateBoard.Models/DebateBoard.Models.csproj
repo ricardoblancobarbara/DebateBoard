@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Article\ArticleEdit.cs" />
     <Compile Include="Article\ArticleCreate.cs" />
     <Compile Include="Article\ArticleDetail.cs" />
     <Compile Include="Article\ArticleList.cs" />

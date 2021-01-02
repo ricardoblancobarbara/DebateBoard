@@ -73,7 +73,41 @@ namespace DebateBoard.Services
             }
         }
 
+        // Update
+        public bool UpdateArticle(ArticleEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Articles
+                        //.Single(e => e.ArticleId == model.ArticleId && e.OwnerId == _userId);
+                        .Single(e => e.ArticleId == model.ArticleId);
 
+                entity.Title = model.Title;
+                entity.Content = model.Content;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        // Delete
+        public bool DeleteArticle(int articleId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Articles
+                        //.Single(e => e.ArticleId == articleId && e.OwnerId == _userId);
+                        .Single(e => e.ArticleId == articleId);
+
+                ctx.Articles.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
     }
 }
