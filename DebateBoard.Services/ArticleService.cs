@@ -1,5 +1,6 @@
 ﻿using DebateBoard.Data;
 using DebateBoard.Models;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +11,28 @@ namespace DebateBoard.Services
 {
     public class ArticleService
     {
+        private readonly Guid _userId;
+
+        public ArticleService(Guid userId)
+        {
+            _userId = userId;
+        }
+
+        // CRRUD
         // Create
         public bool CreateArticle(ArticleCreate model)
         {
-            var entity =
-                new Article()
-                {
-                    Title = model.Title,
-                    Content = model.Content
-                };
-
+            var entity = new Article() {
+                Title = model.Title,
+                SubTitle = model.SubTitle,
+                Content = model.Content,
+                Category = model.Category,
+                Subject = model.Subject,
+                AuthorId = model.AuthorId, //User.Identity.GetUserName(),
+                Points = model.Points,
+                CreatedUtc = DateTimeOffset.Now,
+                ModifiedUtc = model.ModifiedUtc
+            };
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Articles.Add(entity);
@@ -32,19 +45,21 @@ namespace DebateBoard.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query =
+                var query = 
                     ctx
                         .Articles
-                        //.Where(e => e.Author == _userId)
+                        //.Where(e => e.AuthorId == _userId)
                         .Select(
                             e =>
                                 new ArticleList
                                 {
                                     ArticleId = e.ArticleId,
-                                    Title = e.Title
+                                    Title = e.Title,
+                                    SubTitle = e.SubTitle,
+                                    Points = e.Points,
+                                    CreatedUtc = e.CreatedUtc
                                 }
                         );
-
                 return query.ToArray();
             }
         }
@@ -86,26 +101,24 @@ namespace DebateBoard.Services
 
                 entity.Title = model.Title;
                 entity.Content = model.Content;
-                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                //entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        // Delete
+        // DELETE
         public bool DeleteArticle(int articleId)
         {
-            using (var ctx = new ApplicationDbContext())
+            using (var context = new ApplicationDbContext())
             {
-                var entity =
-                    ctx
-                        .Articles
-                        //.Single(e => e.ArticleId == articleId && e.OwnerId == _userId);
-                        .Single(e => e.ArticleId == articleId);
+                var entity = context
+                    .Articles
+                    //.Single(e => e.ArticleId == articleId && e.OwnerId == _userId);
+                    .Single(e => e.ArticleId == articleId);
 
-                ctx.Articles.Remove(entity);
-
-                return ctx.SaveChanges() == 1;
+                context.Articles.Remove(entity);
+                return context.SaveChanges() == 1;
             }
         }
 

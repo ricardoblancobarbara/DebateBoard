@@ -34,7 +34,7 @@ namespace DebateBoard.Data
 
         // Add Tables to the Database
 
-        //public DbSet<Debater> Debaters { get; set; }
+        public DbSet<Debater> Debaters { get; set; }
 
         public DbSet<Article> Articles { get; set; }
 

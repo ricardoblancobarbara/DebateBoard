@@ -1,5 +1,7 @@
-﻿using DebateBoard.Models;
+﻿using DebateBoard.Data;
+using DebateBoard.Models;
 using DebateBoard.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +16,7 @@ namespace DebateBoard.Controllers
         // GET: Article/Index
         public ActionResult Index()
         {
-            var service = new ArticleService();
+            var service = CreateArticleService();
             var model = service.GetArticles();
             return View(model);
         }
@@ -24,24 +26,30 @@ namespace DebateBoard.Controllers
         {
             return View();
         }
+
         // POST: Article/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ArticleCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var service = new ArticleService();
-                service.CreateArticle(model);
-                return RedirectToAction("Index");
+                return View(model);
             }
+            var service = CreateArticleService();
+            if (service.CreateArticle(model))
+            {
+                TempData["SaveResult"] = "Your article was created.";
+                return RedirectToAction("Index");
+            };
+            ModelState.AddModelError("", "Article could not be created.");
             return View(model);
         }
 
         // GET: Article/Details/{id}
         public ActionResult Details(int id)
         {
-            var service = new ArticleService();
+            var service = CreateArticleService();
             var model = service.GetArticleById(id);
             return View(model);
         }
@@ -49,7 +57,7 @@ namespace DebateBoard.Controllers
         // GET: Article/Edit/{id}
         public ActionResult Edit(int id)
         {
-            var service = new ArticleService();
+            var service = CreateArticleService();
             var detail = service.GetArticleById(id);
             var model =
                 new ArticleEdit
@@ -60,35 +68,32 @@ namespace DebateBoard.Controllers
                 };
             return View(model);
         }
+
         // POST: Article/Edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, ArticleEdit model)
         {
             if (!ModelState.IsValid) return View(model);
-
             if (model.ArticleId != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
-
-            var service = new ArticleService();
-
+            var service = CreateArticleService();
             if (service.UpdateArticle(model))
             {
-                TempData["SaveResult"] = "Your note was updated.";
+                TempData["SaveResult"] = "Your article was updated.";
                 return RedirectToAction("Index");
             }
-
-            ModelState.AddModelError("", "Your note could not be updated.");
+            ModelState.AddModelError("", "Your article could not be updated.");
             return View(model);
         }
 
         // GET: Article/Delete/{id}
         public ActionResult Delete(int id)
         {
-            var service = new ArticleService();
+            var service = CreateArticleService();
             var model = service.GetArticleById(id);
             return View(model);
         }
@@ -98,14 +103,20 @@ namespace DebateBoard.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeletePost(int id)
         {
-            var service = new ArticleService();
-
+            var service = CreateArticleService();
             service.DeleteArticle(id);
-
-            TempData["SaveResult"] = "Your note was deleted";
-
+            TempData["SaveResult"] = "Your article was deleted";
             return RedirectToAction("Index");
         }
+
+        private ArticleService CreateArticleService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ArticleService(userId);
+            return service;
+        }
+        
+
 
 
     }

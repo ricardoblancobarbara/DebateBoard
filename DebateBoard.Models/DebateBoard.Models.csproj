@@ -58,11 +58,16 @@
     <Compile Include="Article\ArticleCreate.cs" />
     <Compile Include="Article\ArticleDetail.cs" />
     <Compile Include="Article\ArticleList.cs" />
+    <Compile Include="Debater\DebaterCreate.cs" />
+    <Compile Include="Debater\DebaterDetail.cs" />
+    <Compile Include="Debater\DebaterEdit.cs" />
+    <Compile Include="Debater\DebaterList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

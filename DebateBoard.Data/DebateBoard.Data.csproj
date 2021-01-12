@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Article.cs" />
+    <Compile Include="Debater.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202101011708085_InitialCreate.cs" />
     <Compile Include="Migrations\202101011708085_InitialCreate.Designer.cs">
@@ -63,6 +64,34 @@
     <Compile Include="Migrations\202101020147291_FirstMigration.cs" />
     <Compile Include="Migrations\202101020147291_FirstMigration.Designer.cs">
       <DependentUpon>202101020147291_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101022027525_DebaterAdded.cs" />
+    <Compile Include="Migrations\202101022027525_DebaterAdded.Designer.cs">
+      <DependentUpon>202101022027525_DebaterAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101031803485_ExpandedArticle.cs" />
+    <Compile Include="Migrations\202101031803485_ExpandedArticle.Designer.cs">
+      <DependentUpon>202101031803485_ExpandedArticle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101032144031_PointsAdded.cs" />
+    <Compile Include="Migrations\202101032144031_PointsAdded.Designer.cs">
+      <DependentUpon>202101032144031_PointsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101040038549_ImprovingArticle.cs" />
+    <Compile Include="Migrations\202101040038549_ImprovingArticle.Designer.cs">
+      <DependentUpon>202101040038549_ImprovingArticle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101050231402_FixingUser.cs" />
+    <Compile Include="Migrations\202101050231402_FixingUser.Designer.cs">
+      <DependentUpon>202101050231402_FixingUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101122227012_FixingDatabase.cs" />
+    <Compile Include="Migrations\202101122227012_FixingDatabase.Designer.cs">
+      <DependentUpon>202101122227012_FixingDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101122238465_CategoryString.cs" />
+    <Compile Include="Migrations\202101122238465_CategoryString.Designer.cs">
+      <DependentUpon>202101122238465_CategoryString.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +106,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101020147291_FirstMigration.resx">
       <DependentUpon>202101020147291_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101022027525_DebaterAdded.resx">
+      <DependentUpon>202101022027525_DebaterAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101031803485_ExpandedArticle.resx">
+      <DependentUpon>202101031803485_ExpandedArticle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101032144031_PointsAdded.resx">
+      <DependentUpon>202101032144031_PointsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101040038549_ImprovingArticle.resx">
+      <DependentUpon>202101040038549_ImprovingArticle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101050231402_FixingUser.resx">
+      <DependentUpon>202101050231402_FixingUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101122227012_FixingDatabase.resx">
+      <DependentUpon>202101122227012_FixingDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101122238465_CategoryString.resx">
+      <DependentUpon>202101122238465_CategoryString.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

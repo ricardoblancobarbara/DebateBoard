@@ -10,8 +10,12 @@ namespace DebateBoard.Models
     public class ArticleDetail
     {        
         public int ArticleId { get; set; }
+
         public string Title { get; set; }
+
         public string Content { get; set; }
+
+
 
         [Display(Name = "Published")]
         public DateTimeOffset CreatedUtc { get; set; }
