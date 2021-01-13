@@ -58,10 +58,10 @@
     <Compile Include="Article\ArticleCreate.cs" />
     <Compile Include="Article\ArticleDetail.cs" />
     <Compile Include="Article\ArticleList.cs" />
-    <Compile Include="Debater\DebaterCreate.cs" />
-    <Compile Include="Debater\DebaterDetail.cs" />
-    <Compile Include="Debater\DebaterEdit.cs" />
-    <Compile Include="Debater\DebaterList.cs" />
+    <Compile Include="Comment\CommentEdit.cs" />
+    <Compile Include="Comment\CommentDetail.cs" />
+    <Compile Include="Comment\CommentCreate.cs" />
+    <Compile Include="Comment\CommentList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

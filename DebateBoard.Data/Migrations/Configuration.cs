@@ -10,7 +10,6 @@ namespace DebateBoard.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "DebateBoard.Data.ApplicationDbContext";
         }
 
         protected override void Seed(DebateBoard.Data.ApplicationDbContext context)

@@ -6,25 +6,20 @@ using System.Threading.Tasks;
 
 namespace DebateBoard.Models
 {
-    public class ArticleList
+    public class CommentDetail
     {
-        public int ArticleId { get; set; }
-
-        public string Category { get; set; }
-
-        public string Subject { get; set; }
-
-        public string Title { get; set; }
-
-        public string SubTitle { get; set; }
+        public int CommentId { get; set; }
 
         public string Content { get; set; }
 
-        public Guid AuthorId { get; set; }
+        public string Id { get; set; }
+
+        public int ArticleId { get; set; }
 
         public int Points { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }
 
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

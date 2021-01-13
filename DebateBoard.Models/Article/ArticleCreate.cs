@@ -12,7 +12,7 @@ namespace DebateBoard.Models
     public class ArticleCreate
     {
         //public Category Category { get; set; }
-        public String Category { get; set; }
+        public string Category { get; set; }
         public string Subject { get; set; }
 
         [Required]

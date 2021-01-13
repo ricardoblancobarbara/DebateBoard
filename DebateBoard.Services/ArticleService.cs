@@ -28,7 +28,7 @@ namespace DebateBoard.Services
                 Content = model.Content,
                 Category = model.Category,
                 Subject = model.Subject,
-                AuthorId = model.AuthorId, //User.Identity.GetUserName(),
+                AuthorId = _userId,
                 Points = model.Points,
                 CreatedUtc = DateTimeOffset.Now,
                 ModifiedUtc = model.ModifiedUtc
@@ -40,7 +40,7 @@ namespace DebateBoard.Services
             }
         }
 
-        // Read
+        // Read All
         public IEnumerable<ArticleList> GetArticles()
         {
             using (var ctx = new ApplicationDbContext())
@@ -49,23 +49,23 @@ namespace DebateBoard.Services
                     ctx
                         .Articles
                         //.Where(e => e.AuthorId == _userId)
-                        .Select(
-                            e =>
-                                new ArticleList
-                                {
-                                    ArticleId = e.ArticleId,
-                                    Title = e.Title,
-                                    SubTitle = e.SubTitle,
-                                    Points = e.Points,
-                                    CreatedUtc = e.CreatedUtc
-                                }
+                        .Select(e => new ArticleList {
+                                ArticleId = e.ArticleId,
+                                Category = e.Category,
+                                Subject = e.Subject,
+                                Title = e.Title,
+                                SubTitle = e.SubTitle,
+                                Content = e.Content,
+                                AuthorId = e.AuthorId,
+                                Points = e.Points,
+                                CreatedUtc = e.CreatedUtc
+                            }
                         );
                 return query.ToArray();
             }
         }
 
-
-        // Read
+        // Read Single
         public ArticleDetail GetArticleById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -73,8 +73,8 @@ namespace DebateBoard.Services
                 var entity =
                     ctx
                         .Articles
-                        //.Single(e => e.ArticleId == id && e.OwnerId == _userId);
-                        .Single(e => e.ArticleId == id);
+                        .Single(e => e.ArticleId == id && e.AuthorId == _userId);
+                        //.Single(e => e.ArticleId == id);
 
                 return
                     new ArticleDetail
@@ -96,8 +96,8 @@ namespace DebateBoard.Services
                 var entity =
                     ctx
                         .Articles
-                        //.Single(e => e.ArticleId == model.ArticleId && e.OwnerId == _userId);
-                        .Single(e => e.ArticleId == model.ArticleId);
+                        .Single(e => e.ArticleId == model.ArticleId && e.AuthorId == _userId);
+                        //.Single(e => e.ArticleId == model.ArticleId);
 
                 entity.Title = model.Title;
                 entity.Content = model.Content;
@@ -107,15 +107,15 @@ namespace DebateBoard.Services
             }
         }
 
-        // DELETE
+        // Delete
         public bool DeleteArticle(int articleId)
         {
             using (var context = new ApplicationDbContext())
             {
                 var entity = context
                     .Articles
-                    //.Single(e => e.ArticleId == articleId && e.OwnerId == _userId);
-                    .Single(e => e.ArticleId == articleId);
+                    .Single(e => e.ArticleId == articleId && e.AuthorId == _userId);
+                    //.Single(e => e.ArticleId == articleId);
 
                 context.Articles.Remove(entity);
                 return context.SaveChanges() == 1;

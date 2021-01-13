@@ -13,12 +13,9 @@ namespace DebateBoard.Data
         [Key]
         public int ArticleId { get; set; }
 
-        [Required]
-        public Guid AuthorId { get; set; }
-
         // This should be a picklist
         //public Enum Category { get; set; }
-        public String Category { get; set; }
+        public string Category { get; set; }
 
         // This should be a picklist ?
         public string Subject { get; set; }
@@ -32,6 +29,9 @@ namespace DebateBoard.Data
 
         [Required]
         public string Content { get; set; }
+
+        [Required]
+        public Guid AuthorId { get; set; }
 
         public int Points { get; set; }
 

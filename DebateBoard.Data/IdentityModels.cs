@@ -34,11 +34,11 @@ namespace DebateBoard.Data
 
         // Add Tables to the Database
 
-        public DbSet<Debater> Debaters { get; set; }
+        //public DbSet<Debater> Debaters { get; set; }
 
         public DbSet<Article> Articles { get; set; }
 
-        //public DbSet<Comment> Comments { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

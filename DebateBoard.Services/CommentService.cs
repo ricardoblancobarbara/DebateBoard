@@ -1,0 +1,123 @@
+﻿using DebateBoard.Data;
+using DebateBoard.Models;
+using DebateBoard.Models.Comment;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DebateBoard.Services
+{
+    public class CommentService
+    {
+        private readonly Guid _userId;
+
+        public CommentService(Guid userId)
+        {
+            _userId = userId;
+        }
+
+        // CRRUD
+        // Create
+        public bool CreateComment(CommentCreate model)
+        {
+            var entity = new Comment()
+            {
+                Content = model.Content,
+                Id = _userId.ToString(), //User.Identity.GetUserName(),
+                ArticleId = model.ArticleId,
+                Points = model.Points,
+                CreatedUtc = DateTimeOffset.Now
+            };
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Comments.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        // Read
+        public IEnumerable<CommentList> GetComments()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Comments
+                        //.Where(e => e.AuthorId == _userId)
+                        .Select(
+                            e =>
+                                new CommentList
+                                {
+                                    CommentId = e.CommentId,
+                                    Content = e.Content,
+                                    Id = _userId.ToString(),
+                                    ArticleId = e.ArticleId,
+                                    Points = e.Points,
+                                    CreatedUtc = e.CreatedUtc
+                                }
+                        );
+                return query.ToArray();
+            }
+        }
+
+
+        // Read
+        public CommentDetail GetCommentById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Comments
+                        //.Single(e => e.ArticleId == id && e.OwnerId == _userId);
+                        .Single(e => e.CommentId == id);
+
+                return
+                    new CommentDetail
+                    {
+                        CommentId = entity.CommentId,
+                        Content = entity.Content,
+                        Id = _userId.ToString(),
+                        ArticleId = entity.ArticleId,
+                        CreatedUtc = entity.CreatedUtc
+                        //ModifiedUtc = entity.ModifiedUtc
+                    };
+            }
+        }
+
+        // Update
+        public bool UpdateComment(CommentEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Comments
+                        //.Single(e => e.ArticleId == model.ArticleId && e.OwnerId == _userId);
+                        .Single(e => e.CommentId == model.CommentId);
+
+                entity.Content = model.Content;
+                //entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        // DELETE
+        public bool DeleteComment(int commentId)
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                var entity = context
+                    .Comments
+                    //.Single(e => e.ArticleId == articleId && e.OwnerId == _userId);
+                    .Single(e => e.CommentId == commentId);
+
+                context.Comments.Remove(entity);
+                return context.SaveChanges() == 1;
+            }
+        }
+    }
+}
