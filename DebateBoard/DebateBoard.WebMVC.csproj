@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\BioController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -247,6 +248,11 @@
     <Content Include="Views\Comment\Details.cshtml" />
     <Content Include="Views\Comment\Edit.cshtml" />
     <Content Include="Views\Comment\Delete.cshtml" />
+    <Content Include="Views\Bio\Create.cshtml" />
+    <Content Include="Views\Bio\Index.cshtml" />
+    <Content Include="Views\Bio\Details.cshtml" />
+    <Content Include="Views\Bio\Edit.cshtml" />
+    <Content Include="Views\Bio\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

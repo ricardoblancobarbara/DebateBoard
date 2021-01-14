@@ -58,6 +58,10 @@
     <Compile Include="Article\ArticleCreate.cs" />
     <Compile Include="Article\ArticleDetail.cs" />
     <Compile Include="Article\ArticleList.cs" />
+    <Compile Include="Bio\BioCreate.cs" />
+    <Compile Include="Bio\BioDetail.cs" />
+    <Compile Include="Bio\BioEdit.cs" />
+    <Compile Include="Bio\BioList.cs" />
     <Compile Include="Comment\CommentEdit.cs" />
     <Compile Include="Comment\CommentDetail.cs" />
     <Compile Include="Comment\CommentCreate.cs" />
