@@ -12,12 +12,12 @@
     <dl class="dl-horizontal">
 
         @*<dt>
-            @Html.DisplayNameFor(model => model.ArticleId)
-        </dt>
+                @Html.DisplayNameFor(model => model.ArticleId)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ArticleId)
-        </dd>*@
+            <dd>
+                @Html.DisplayFor(model => model.ArticleId)
+            </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.Category)
@@ -60,12 +60,12 @@
         </dd>
 
         @*<dt>
-            @Html.DisplayNameFor(model => model.AuthorId)
-        </dt>
+                @Html.DisplayNameFor(model => model.AuthorId)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AuthorId)
-        </dd>*@
+            <dd>
+                @Html.DisplayFor(model => model.AuthorId)
+            </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.Points)
@@ -83,9 +83,20 @@
             @Html.DisplayFor(model => model.CreatedUtc)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
     </dl>
+
 </div>
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.ArticleId }) |*@
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") |
+    @*@Html.ActionLink("Comment", "Create", new { id = Model.ArticleId })*@
+    @Html.ActionLink("Write a Comment", "Create", "Comment")
 </p>

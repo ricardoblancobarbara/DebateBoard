@@ -25,10 +25,11 @@ namespace DebateBoard.Services
             var entity = new Comment()
             {
                 Content = model.Content,
-                Id = _userId.ToString(), //User.Identity.GetUserName(),
+                Id = _userId.ToString(),
                 ArticleId = model.ArticleId,
                 Points = model.Points,
-                CreatedUtc = DateTimeOffset.Now
+                CreatedUtc = DateTimeOffset.Now,
+                ModifiedUtc = model.ModifiedUtc
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -55,7 +56,8 @@ namespace DebateBoard.Services
                                     Id = _userId.ToString(),
                                     ArticleId = e.ArticleId,
                                     Points = e.Points,
-                                    CreatedUtc = e.CreatedUtc
+                                    CreatedUtc = e.CreatedUtc,
+                                    ModifiedUtc = e.ModifiedUtc
                                 }
                         );
                 return query.ToArray();
@@ -71,7 +73,7 @@ namespace DebateBoard.Services
                 var entity =
                     ctx
                         .Comments
-                        //.Single(e => e.ArticleId == id && e.OwnerId == _userId);
+                        //.Single(e => e.CommentId == id && e.AuthorId == _userId);
                         .Single(e => e.CommentId == id);
 
                 return
@@ -81,8 +83,8 @@ namespace DebateBoard.Services
                         Content = entity.Content,
                         Id = _userId.ToString(),
                         ArticleId = entity.ArticleId,
-                        CreatedUtc = entity.CreatedUtc
-                        //ModifiedUtc = entity.ModifiedUtc
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
                     };
             }
         }
@@ -95,24 +97,27 @@ namespace DebateBoard.Services
                 var entity =
                     ctx
                         .Comments
-                        //.Single(e => e.ArticleId == model.ArticleId && e.OwnerId == _userId);
+                        //.Single(e => e.CommentId == model.CommentId && e.AuthorId == _userId);
                         .Single(e => e.CommentId == model.CommentId);
 
                 entity.Content = model.Content;
-                //entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                entity.Id = _userId.ToString();
+                entity.ArticleId = model.ArticleId;
+                entity.Points = model.Points;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        // DELETE
+        // Delete
         public bool DeleteComment(int commentId)
         {
             using (var context = new ApplicationDbContext())
             {
                 var entity = context
                     .Comments
-                    //.Single(e => e.ArticleId == articleId && e.OwnerId == _userId);
+                    //.Single(e => e.CommentId == commentId && e.AuthorId == _userId);
                     .Single(e => e.CommentId == commentId);
 
                 context.Comments.Remove(entity);

@@ -7,13 +7,13 @@ namespace DebateBoard.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class ForeignKeyFixed : IMigrationMetadata
+    public sealed partial class FirstMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ForeignKeyFixed));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FirstMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202101130224566_ForeignKeyFixed"; }
+            get { return "202101141655162_FirstMigration"; }
         }
         
         string IMigrationMetadata.Source

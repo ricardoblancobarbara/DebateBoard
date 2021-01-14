@@ -4,16 +4,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Index: List of Comments</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.CommentId)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Content)
         </th>
@@ -37,9 +37,9 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.CommentId)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Content)
         </td>
@@ -59,7 +59,7 @@
             @Html.DisplayFor(modelItem => item.ModifiedUtc)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CommentId }) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) |
             @Html.ActionLink("Details", "Details", new { id = item.CommentId }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.CommentId })
         </td>

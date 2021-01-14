@@ -63,7 +63,10 @@ namespace DebateBoard.Controllers
                 new ArticleEdit
                 {
                     ArticleId = detail.ArticleId,
+                    Category = detail.Category,
+                    Subject = detail.Subject,
                     Title = detail.Title,
+                    SubTitle = detail.SubTitle,
                     Content = detail.Content
                 };
             return View(model);
@@ -116,8 +119,5 @@ namespace DebateBoard.Controllers
             return service;
         }
         
-
-
-
     }
 }

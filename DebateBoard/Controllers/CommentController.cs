@@ -61,7 +61,12 @@ namespace DebateBoard.Controllers
                 new CommentEdit
                 {
                     CommentId = detail.CommentId,
-                    Content = detail.Content
+                    Content = detail.Content,
+                    Id = detail.Id,
+                    ArticleId = detail.ArticleId,
+                    Points = detail.Points,
+                    //CreatedUtc = detail.CreatedUtc,
+                    //ModifiedUtc = detail.ModifiedUtc
                 };
             return View(model);
         }

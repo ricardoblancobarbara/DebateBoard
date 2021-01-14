@@ -13,8 +13,10 @@ namespace DebateBoard.Models
 
         public string Content { get; set; }
 
+        [Display(Name = "Author")]
         public string Id { get; set; }
 
+        [Display(Name = "Article")]
         public int ArticleId { get; set; }
 
         public int Points { get; set; }

@@ -9,21 +9,16 @@ namespace DebateBoard.Data
 {
     public class Article
     {
-        // De aca va a tomar la info ArticleCreate
         [Key]
         public int ArticleId { get; set; }
 
-        // This should be a picklist
-        //public Enum Category { get; set; }
         public string Category { get; set; }
 
-        // This should be a picklist ?
         public string Subject { get; set; }
 
         [Required]
         public string Title { get; set; }
 
-        // This should be the first paragraph
         [Required]
         public string SubTitle { get; set; }
 

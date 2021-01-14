@@ -58,7 +58,8 @@ namespace DebateBoard.Services
                                 Content = e.Content,
                                 AuthorId = e.AuthorId,
                                 Points = e.Points,
-                                CreatedUtc = e.CreatedUtc
+                                CreatedUtc = e.CreatedUtc,
+                                ModifiedUtc = e.ModifiedUtc
                             }
                         );
                 return query.ToArray();
@@ -73,17 +74,20 @@ namespace DebateBoard.Services
                 var entity =
                     ctx
                         .Articles
-                        .Single(e => e.ArticleId == id && e.AuthorId == _userId);
-                        //.Single(e => e.ArticleId == id);
+                        //.Single(e => e.ArticleId == id && e.AuthorId == _userId);
+                        .Single(e => e.ArticleId == id);
 
                 return
                     new ArticleDetail
                     {
                         ArticleId = entity.ArticleId,
+                        Category = entity.Category,
+                        Subject = entity.Subject,
                         Title = entity.Title,
+                        SubTitle = entity.SubTitle,
                         Content = entity.Content,
-                        CreatedUtc = entity.CreatedUtc
-                        //ModifiedUtc = entity.ModifiedUtc
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
                     };
             }
         }
@@ -99,11 +103,14 @@ namespace DebateBoard.Services
                         .Single(e => e.ArticleId == model.ArticleId && e.AuthorId == _userId);
                         //.Single(e => e.ArticleId == model.ArticleId);
 
-                entity.Title = model.Title;
-                entity.Content = model.Content;
-                //entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                        entity.Category = model.Category;
+                        entity.Subject = model.Subject;
+                        entity.Title = model.Title;
+                        entity.SubTitle = model.SubTitle;
+                        entity.Content = model.Content;
+                        entity.ModifiedUtc = DateTimeOffset.Now;
 
-                return ctx.SaveChanges() == 1;
+                        return ctx.SaveChanges() == 1;
             }
         }
 

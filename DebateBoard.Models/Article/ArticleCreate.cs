@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace DebateBoard.Models
 {
-    // Este a su vez toma la info de Article
-    // De aca va a tomar la info Service
     public class ArticleCreate
     {
-        //public Category Category { get; set; }
         public string Category { get; set; }
         public string Subject { get; set; }
 
@@ -37,14 +34,6 @@ namespace DebateBoard.Models
 
         public DateTimeOffset ModifiedUtc { get; set; }
     }
-
-    //public enum Category
-    //{
-    //    Politics,
-    //    Economy,
-    //    Environmentalism,
-    //    General
-    //}
 
 
 }

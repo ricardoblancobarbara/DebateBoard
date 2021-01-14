@@ -57,9 +57,9 @@
     <Compile Include="Article.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202101130224566_ForeignKeyFixed.cs" />
-    <Compile Include="Migrations\202101130224566_ForeignKeyFixed.Designer.cs">
-      <DependentUpon>202101130224566_ForeignKeyFixed.cs</DependentUpon>
+    <Compile Include="Migrations\202101141655162_FirstMigration.cs" />
+    <Compile Include="Migrations\202101141655162_FirstMigration.Designer.cs">
+      <DependentUpon>202101141655162_FirstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,8 +69,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101130224566_ForeignKeyFixed.resx">
-      <DependentUpon>202101130224566_ForeignKeyFixed.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101141655162_FirstMigration.resx">
+      <DependentUpon>202101141655162_FirstMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

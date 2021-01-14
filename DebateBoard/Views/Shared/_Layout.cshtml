@@ -27,6 +27,10 @@
                     {
                         <li>@Html.ActionLink("Start a Debate", "Create", "Article")</li>
                     }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Comment an Article", "Index", "Comment")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

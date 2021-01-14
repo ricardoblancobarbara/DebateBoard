@@ -26,5 +26,8 @@ namespace DebateBoard.Models
         public int Points { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }
+
+        public DateTimeOffset ModifiedUtc { get; set; }
+
     }
 }

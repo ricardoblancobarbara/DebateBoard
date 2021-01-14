@@ -21,14 +21,16 @@ namespace DebateBoard.Models
 
         public string Content { get; set; }
 
+        [Display(Name = "Author")]
         public Guid AuthorId { get; set; }
 
         public int Points { get; set; }
 
-        [Display(Name = "Published")]
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 
-
+        [Display(Name = "Modified")]
+        public DateTimeOffset? ModifiedUtc { get; set; }
 
     }
 }
