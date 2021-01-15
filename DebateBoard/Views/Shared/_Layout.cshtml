@@ -19,10 +19,11 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Debate Board", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("All the Articles", "Index", "Article", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("All the Debates", "Index", "Article")</li>
+                    <li>@Html.ActionLink("All the Articles", "Index", "Article")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Start a Debate", "Create", "Article")</li>
@@ -30,6 +31,10 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Comment an Article", "Index", "Comment")</li>
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("My Stuff", "Index", "Comment")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

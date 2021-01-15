@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace DebateBoard.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ArticleController : Controller
     {
         // GET: Article/Index

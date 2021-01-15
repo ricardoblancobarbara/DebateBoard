@@ -14,6 +14,8 @@ namespace DebateBoard.Models.Bio
 
         public string Content { get; set; }
 
+        public string Id { get; set; }
+
         public int Points { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }

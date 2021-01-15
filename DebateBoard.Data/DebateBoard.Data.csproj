@@ -54,9 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Article.cs" />
-    <Compile Include="Bio.cs" />
-    <Compile Include="Comment.cs" />
+    <Compile Include="Entities\Article.cs" />
+    <Compile Include="Entities\Bio.cs" />
+    <Compile Include="Entities\Comment.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202101141655162_FirstMigration.cs" />
     <Compile Include="Migrations\202101141655162_FirstMigration.Designer.cs">
@@ -65,6 +65,10 @@
     <Compile Include="Migrations\202101141831104_BioAdded.cs" />
     <Compile Include="Migrations\202101141831104_BioAdded.Designer.cs">
       <DependentUpon>202101141831104_BioAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101142045250_BioAdded1.cs" />
+    <Compile Include="Migrations\202101142045250_BioAdded1.Designer.cs">
+      <DependentUpon>202101142045250_BioAdded1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +84,12 @@
     <EmbeddedResource Include="Migrations\202101141831104_BioAdded.resx">
       <DependentUpon>202101141831104_BioAdded.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101142045250_BioAdded1.resx">
+      <DependentUpon>202101142045250_BioAdded1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contexts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

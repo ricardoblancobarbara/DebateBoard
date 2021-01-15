@@ -25,6 +25,7 @@ namespace DebateBoard.Services
             {
                 Title = model.Title,
                 Content = model.Content,
+                Id = _userId.ToString(),
                 Points = model.Points,
                 CreatedUtc = DateTimeOffset.Now,
                 ModifiedUtc = model.ModifiedUtc
@@ -52,6 +53,7 @@ namespace DebateBoard.Services
                                     BioId = e.BioId,
                                     Title = e.Title,
                                     Content = e.Content,
+                                    Id = _userId.ToString(),
                                     Points = e.Points,
                                     CreatedUtc = e.CreatedUtc,
                                     ModifiedUtc = e.ModifiedUtc
@@ -79,6 +81,7 @@ namespace DebateBoard.Services
                         BioId = entity.BioId,
                         Title = entity.Title,
                         Content = entity.Content,
+
                         Points = entity.Points,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc

@@ -40,7 +40,7 @@ namespace DebateBoard.Services
             }
         }
 
-        // Read All
+        // Read All 
         public IEnumerable<ArticleList> GetArticles()
         {
             using (var ctx = new ApplicationDbContext())

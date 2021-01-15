@@ -98,5 +98,6 @@
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.ArticleId }) |*@
     @Html.ActionLink("Back to List", "Index") |
     @*@Html.ActionLink("Comment", "Create", new { id = Model.ArticleId })*@
-    @Html.ActionLink("Write a Comment", "Create", "Comment")
+    @Html.ActionLink("Write a Comment", "Create", "Comment", new { ArticleId = Model.ArticleId }, null)
 </p>
+
