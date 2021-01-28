@@ -6,17 +6,49 @@
 
 <h2>Details</h2>
 
-<div>
+<div class="col-md-12 col-sm-12 col-xs-12" style="margin:2vmin 0 2vmin 0;">
+
+    <div class="col-md-2 col-sm-1 col-xs-12"></div>
+    <div class="col-md-8 col-sm-10 col-xs-12"
+         style="border:solid 1px gray;
+                            border-radius: 10px">
+        <h6>
+            @Html.DisplayFor(model => model.Id)
+        </h6>
+        <h6 style="text-align:right">
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </h6>
+        <p>
+            @Html.DisplayFor(model => model.Content)
+        </p>
+        <h6>
+            @Html.ActionLink("Comment", "Create") |
+            @Html.ActionLink("Edit", "Edit", new { id = Model.CommentId }) |
+            @Html.ActionLink("Details", "Details", new { id = Model.CommentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.CommentId })
+        </h6>
+    </div>
+    <div class="col-md-2 col-sm-1 col-xs-12"></div>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CommentId }) |
+    @Html.ActionLink("Back", "Index")
+</p>
+
+
+
+@*<div>
     <h4>CommentDetail</h4>
     <hr />
     <dl class="dl-horizontal">
-        @*<dt>
+        <dt>
             @Html.DisplayNameFor(model => model.CommentId)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.CommentId)
-        </dd>*@
+        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Content)
@@ -58,17 +90,18 @@
             @Html.DisplayFor(model => model.CreatedUtc)
         </dd>
 
-        @*<dt>
+        <dt>
             @Html.DisplayNameFor(model => model.ModifiedUtc)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.ModifiedUtc)
-        </dd>*@
+        </dd>
 
     </dl>
 </div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CommentId }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</p>*@
