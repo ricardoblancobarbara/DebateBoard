@@ -35,11 +35,10 @@ namespace DebateBoard.Services
                 Content = model.Content,
                 Category = model.Category,
                 Subject = model.Subject,
-                //AuthorId = model.ApplicationUser.UserName,
                 AuthorId = _userId,
+                //AuthorId = model.ApplicationUser.UserName,
                 Points = model.Points,
                 CreatedUtc = DateTimeOffset.Now,
-                //ModifiedUtc = model.ModifiedUtc
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -64,8 +63,8 @@ namespace DebateBoard.Services
                                 Title = e.Title,
                                 SubTitle = e.SubTitle,
                                 Content = e.Content,
-                                //AuthorId = e.ApplicationUser.UserName,
                                 AuthorId = e.AuthorId,
+                                //AuthorId = e.ApplicationUser.UserName,
                                 Points = e.Points,
                                 CreatedUtc = e.CreatedUtc,
                                 ModifiedUtc = e.ModifiedUtc
@@ -96,6 +95,7 @@ namespace DebateBoard.Services
                         SubTitle = entity.SubTitle,
                         Content = entity.Content,
                         AuthorId = entity.AuthorId,
+                        //AuthorId = entity.ApplicationUser.UserName,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };

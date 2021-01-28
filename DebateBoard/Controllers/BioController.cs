@@ -10,13 +10,7 @@ using System.Web.Mvc;
 namespace DebateBoard.Controllers
 {
     public class BioController : Controller
-    {
-        // GET: Bio
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
+    {        
         // GET: Bio/Index
         public ActionResult Index()
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DebateBoard.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace DebateBoard.Models.Bio
 {
     public class BioCreate
     {
-        public readonly object ApplicationUser;
+        //public readonly object ApplicationUser;
 
         public int BioId { get; set; }
 
@@ -17,7 +18,9 @@ namespace DebateBoard.Models.Bio
 
         public string Biography { get; set; }
 
+
         public string Id { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
         public int Points { get; set; }
 

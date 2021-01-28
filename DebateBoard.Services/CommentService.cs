@@ -28,10 +28,8 @@ namespace DebateBoard.Services
                 Id = _userId.ToString(),
                 //Id = model.ApplicationUser.UserName,
                 ArticleId = model.ArticleId,
-                //Email = model.ApplicationUser.Email,
                 Points = model.Points,
-                CreatedUtc = DateTimeOffset.Now,
-                ModifiedUtc = model.ModifiedUtc
+                CreatedUtc = DateTimeOffset.Now
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -106,6 +104,7 @@ namespace DebateBoard.Services
 
                 entity.Content = model.Content;
                 entity.Id = _userId.ToString();
+                //entity.Id = model.ApplicationUser.UserName,
                 entity.ArticleId = model.ArticleId;
                 entity.Points = model.Points;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;

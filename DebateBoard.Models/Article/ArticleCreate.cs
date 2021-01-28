@@ -32,7 +32,7 @@ namespace DebateBoard.Models
 
         public Guid AuthorId { get; set; }
         //public string AuthorId { get; set; }
-        //public virtual ApplicationUser ApplicationUser { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
         public int Points { get; set; }
 

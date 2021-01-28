@@ -23,14 +23,13 @@ namespace DebateBoard.Services
         {
             var entity = new Bio()
             {
-                BioId = model.BioId,
+                //BioId = model.BioId,
                 Name = model.Name,
                 Biography = model.Biography,
                 Id = _userId.ToString(),
-                //Id = model.ApplicationUser.,
+                //Id = model.ApplicationUser.UserName,
                 Points = model.Points,
-                CreatedUtc = DateTimeOffset.Now,
-                ModifiedUtc = model.ModifiedUtc
+                CreatedUtc = DateTimeOffset.Now
             };
             using (var ctx = new ApplicationDbContext())
             {

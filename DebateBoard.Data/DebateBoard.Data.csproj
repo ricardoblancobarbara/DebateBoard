@@ -91,6 +91,10 @@
     <Compile Include="Migrations\202101261434293_NameChanged.Designer.cs">
       <DependentUpon>202101261434293_NameChanged.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101282320358_Last.cs" />
+    <Compile Include="Migrations\202101282320358_Last.Designer.cs">
+      <DependentUpon>202101282320358_Last.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -110,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101261434293_NameChanged.resx">
       <DependentUpon>202101261434293_NameChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101282320358_Last.resx">
+      <DependentUpon>202101282320358_Last.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
