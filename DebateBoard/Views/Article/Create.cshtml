@@ -17,46 +17,39 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-8">
-                @Html.EditorFor(model => model.Category, new { htmlAttributes = new { placeholder = "your Full Name", @class = "form-control" } })
+                @Html.EditorFor(model => model.Category, new { htmlAttributes = new { placeholder = "your article's Category", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-8">
-                @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { placeholder = "your Biography", @class = "form-control textarea" } })
+                @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { placeholder = "your article's Subject", @class = "form-control textarea" } })
                 @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-8">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { placeholder = "your Biography", @class = "form-control textarea" } })
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { placeholder = "your article's Title", @class = "form-control textarea" } })
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-8">
-                @Html.EditorFor(model => model.SubTitle, new { htmlAttributes = new { placeholder = "your Biography", @class = "form-control textarea" } })
+                @Html.EditorFor(model => model.SubTitle, new { htmlAttributes = new { placeholder = "your article's Subtitle", @class = "form-control textarea" } })
                 @Html.ValidationMessageFor(model => model.SubTitle, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-8">
-                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { placeholder = "your Biography", @class = "form-control textarea" } })
+                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { placeholder = "your article", @class = "form-control textarea" } })
                 @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-8">
-                @Html.EditorFor(model => model.AuthorId, new { htmlAttributes = new { placeholder = "your Biography", @class = "form-control textarea" } })
-                @Html.ValidationMessageFor(model => model.AuthorId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
+        
         <div class="form-group">
             <div class="col-md-offset-2 col-md-8">
                 <input type="submit" value="Create" class="btn btn-default" />

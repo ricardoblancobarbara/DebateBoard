@@ -20,87 +20,100 @@
     </div>
 }
 
+<table class="table">
 
-@foreach (var item in Model)
-{
-    <hr />
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="col-md-4 col-sm-4 col-xs-12 image-container">
-            <img class="img-responsive" object-fit: cover height: auto src="~/Content/Images/Williams_Farrell.jpg" alt="Williams Farrell">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <hr />
+
+            <div class="col-md-1 col-sm-1 col-xs-1"></div>
+
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <img class="img-responsive" object-fit: cover height: auto src="~/Content/Images/Williams_Farrell.jpg" alt="Williams Farrell">
+            </div>
+
+            <div class="col-md-7 col-sm-7 col-xs-7">
+                <h6 style="text-align:right">@Html.DisplayFor(modelItem => item.CreatedUtc)</h6>
+                <h3 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h3>
+                <h6>by @Html.DisplayFor(modelItem => item.AuthorId)</h6>
+                <h4 class="card-subtitle">@Html.DisplayFor(modelItem => item.SubTitle)</h4>
+                <br />
+                <h6>@Html.DisplayFor(modelItem => item.Points)</h6>
+                <h6>
+                    @Html.ActionLink("Read more", "Details", new { id = item.ArticleId }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ArticleId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ArticleId })
+                </h6>
+            </div>
+
+            <div class="col-md-1 col-sm-1 col-xs-1"></div>
+
+        <hr />
         </div>
-        <div class="col-md-8 col-sm-8 col-xs-12">
-            <h6>by @Html.DisplayFor(modelItem => item.AuthorId)</h6>
-            <h3 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h3>
-            <h4 class="card-subtitle">@Html.DisplayFor(modelItem => item.SubTitle)</h4>
-            <p></p>
-            <h6>
-                @Html.ActionLink("Read more", "Details", new { id = item.ArticleId }) |
-                @Html.ActionLink("Edit", "Edit", new { id = item.ArticleId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ArticleId })
-            </h6>
-        </div>
-    </div>
-}
+    }
+
+</table>
 
 
 @*<table class="table">
 
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ArticleId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AuthorId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Points)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ArticleId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AuthorId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Points)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedUtc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedUtc)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ArticleId }) |
-                @Html.ActionLink("Read more", "Details", new { id = item.ArticleId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ArticleId })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.ArticleId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Points)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedUtc)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>*@
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArticleId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Points)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedUtc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedUtc)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ArticleId }) |
+                    @Html.ActionLink("Read more", "Details", new { id = item.ArticleId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ArticleId })
+                </td>
+            </tr>
+        }
+
+    </table>*@
 

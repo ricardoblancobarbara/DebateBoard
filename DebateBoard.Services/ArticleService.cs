@@ -95,6 +95,7 @@ namespace DebateBoard.Services
                         Title = entity.Title,
                         SubTitle = entity.SubTitle,
                         Content = entity.Content,
+                        AuthorId = entity.AuthorId,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
