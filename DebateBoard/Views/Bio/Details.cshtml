@@ -7,9 +7,51 @@
 <h2>Details</h2>
 
 <div>
-    <h4>BioDetail</h4>
+    <h4>Biography</h4>
     <hr />
-    <dl class="dl-horizontal">
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+
+        <div class="col-md-4 col-sm-4 col-xs-12" style="text-align:center">
+            <div>
+                <img style="border-radius:50%;
+                            margin:5vmin;
+                            width:25vmin;
+                            height:auto"
+                     src="~/Content/Images/Williams_Farrell.jpg"
+                     alt="Williams Farrell" />
+                <h5>
+                    @Html.DisplayFor(model => model.Id)
+                </h5>
+            </div>
+        </div>
+
+        <div class="col-md-8 col-sm-8 col-xs-12" style="">
+            <h5 style="text-align:right">
+                @Html.DisplayFor(model => model.CreatedUtc)
+            </h5>
+            <h1 style="text-align:center">
+                @Html.DisplayFor(model => model.Name)
+            </h1>
+            <br />
+            <h4 style="color:gray;
+                line-height:1.8;
+                text-align:justify;
+                ">
+                @Html.DisplayFor(model => model.Biography)
+            </h4>
+            <br />
+            <p>
+                @Html.DisplayFor(model => model.Points)
+            </p>
+            <br />
+        </div>
+
+    </div>
+
+
+    @*<dl class="dl-horizontal">
+
         <dt>
             @Html.DisplayNameFor(model => model.BioId)
         </dt>
@@ -58,9 +100,9 @@
             @Html.DisplayFor(model => model.ModifiedUtc)
         </dd>
 
-    </dl>
+    </dl>*@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.BioId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back", "Index")
 </p>

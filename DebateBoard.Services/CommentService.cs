@@ -26,7 +26,9 @@ namespace DebateBoard.Services
             {
                 Content = model.Content,
                 Id = _userId.ToString(),
+                //Id = model.ApplicationUser.UserName,
                 ArticleId = model.ArticleId,
+                //Email = model.ApplicationUser.Email,
                 Points = model.Points,
                 CreatedUtc = DateTimeOffset.Now,
                 ModifiedUtc = model.ModifiedUtc
@@ -53,7 +55,8 @@ namespace DebateBoard.Services
                                 {
                                     CommentId = e.CommentId,
                                     Content = e.Content,
-                                    Id = _userId.ToString(),
+                                    //Id = _userId.ToString(),
+                                    Id = e.ApplicationUser.UserName,
                                     ArticleId = e.ArticleId,
                                     Points = e.Points,
                                     CreatedUtc = e.CreatedUtc,
@@ -81,7 +84,8 @@ namespace DebateBoard.Services
                     {
                         CommentId = entity.CommentId,
                         Content = entity.Content,
-                        Id = _userId.ToString(),
+                        //Id = _userId.ToString(),
+                        Id = entity.ApplicationUser.UserName,
                         ArticleId = entity.ArticleId,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc

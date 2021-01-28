@@ -14,10 +14,10 @@ namespace DebateBoard.Data
         public int BioId { get; set; }
 
         [Required]
-        public string Title { get; set; }
+        public string Name { get; set; }
 
         [Required]
-        public string Content { get; set; }
+        public string Biography { get; set; }
 
         [ForeignKey(nameof(ApplicationUser))]
         public string Id { get; set; }

@@ -9,11 +9,13 @@ namespace DebateBoard.Models.Bio
 {
     public class BioCreate
     {
+        public readonly object ApplicationUser;
+
         public int BioId { get; set; }
 
-        public string Title { get; set; }
+        public string Name { get; set; }
 
-        public string Content { get; set; }
+        public string Biography { get; set; }
 
         public string Id { get; set; }
 

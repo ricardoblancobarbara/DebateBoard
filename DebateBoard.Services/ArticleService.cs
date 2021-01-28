@@ -12,26 +12,34 @@ namespace DebateBoard.Services
     public class ArticleService
     {
         private readonly Guid _userId;
+        //private readonly string _userId;
 
         public ArticleService(Guid userId)
         {
             _userId = userId;
         }
 
+        //public ArticleService(string userId)
+        //{
+        //    _userId = userId;
+        //}
+
         // CRRUD
         // Create
         public bool CreateArticle(ArticleCreate model)
         {
             var entity = new Article() {
+                //ArticleId = model.ArticleId,
                 Title = model.Title,
                 SubTitle = model.SubTitle,
                 Content = model.Content,
                 Category = model.Category,
                 Subject = model.Subject,
+                //AuthorId = model.ApplicationUser.UserName,
                 AuthorId = _userId,
                 Points = model.Points,
                 CreatedUtc = DateTimeOffset.Now,
-                ModifiedUtc = model.ModifiedUtc
+                //ModifiedUtc = model.ModifiedUtc
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -56,6 +64,7 @@ namespace DebateBoard.Services
                                 Title = e.Title,
                                 SubTitle = e.SubTitle,
                                 Content = e.Content,
+                                //AuthorId = e.ApplicationUser.UserName,
                                 AuthorId = e.AuthorId,
                                 Points = e.Points,
                                 CreatedUtc = e.CreatedUtc,
@@ -100,8 +109,8 @@ namespace DebateBoard.Services
                 var entity =
                     ctx
                         .Articles
-                        .Single(e => e.ArticleId == model.ArticleId && e.AuthorId == _userId);
-                        //.Single(e => e.ArticleId == model.ArticleId);
+                        //.Single(e => e.ArticleId == model.ArticleId && e.AuthorId == _userId);
+                        .Single(e => e.ArticleId == model.ArticleId);
 
                         entity.Category = model.Category;
                         entity.Subject = model.Subject;
@@ -121,8 +130,8 @@ namespace DebateBoard.Services
             {
                 var entity = context
                     .Articles
-                    .Single(e => e.ArticleId == articleId && e.AuthorId == _userId);
-                    //.Single(e => e.ArticleId == articleId);
+                    //.Single(e => e.ArticleId == articleId && e.AuthorId == _userId);
+                    .Single(e => e.ArticleId == articleId);
 
                 context.Articles.Remove(entity);
                 return context.SaveChanges() == 1;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DebateBoard.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace DebateBoard.Models.Comment
 
         [Display(Name = "Author")]
         public string Id { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
         public int ArticleId { get; set; }
 

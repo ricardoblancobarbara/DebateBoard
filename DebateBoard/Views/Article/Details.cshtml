@@ -4,20 +4,62 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@*<h2>Details</h2>*@
 
 <div>
-    <h4>ArticleDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
+    @*<h4>ArticleDetail</h4>*@
+    @*<hr />*@
 
-        @*<dt>
-                @Html.DisplayNameFor(model => model.ArticleId)
-            </dt>
+    <br />
+    <div class="col-md-12 col-sm-12 col-xs-12" style="">
+        <div class="col-md-3 col-sm-3 col-xs-3">
+            <div style="text-align:center; padding-top:20vmin">
+                <a href="@Url.Action("", "Bio/Details/6")"> 
+                    <img style="border-radius:50%; 
+                                max-width:10vmin; 
+                                height:auto" src="~/Content/Images/Williams_Farrell.jpg" alt="Williams Farrell" />
+                </a>
+                <h5 style="text-align:center; padding-top:3vmin">
+                    by
+                    @Html.DisplayFor(model => model.AuthorId)
+                </h5>
+                <h5 style="text-align:center; padding-top:3vmin">
+                    @Html.DisplayFor(model => model.Points)
+                </h5>
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8" style="">
+            <br />
+            <h5 style="text-align:right">
+                @Html.DisplayFor(model => model.CreatedUtc)
+            </h5>
+            <h1 style="text-align:center">
+                @Html.DisplayFor(model => model.Title)
+            </h1>
+            <h3>
+                @Html.DisplayFor(model => model.SubTitle)
+            </h3>
+            <br />
+            <h4 style="color:gray;
+                line-height:1.8;
+                text-align:justify;
+                ">
+                @Html.DisplayFor(model => model.Content)
+            </h4>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-1 col-sm-1 col-xs-1"></div>
+    </div>
 
-            <dd>
-                @Html.DisplayFor(model => model.ArticleId)
-            </dd>*@
+    @*<dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ArticleId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArticleId)
+        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Category)
@@ -59,13 +101,13 @@
             @Html.DisplayFor(model => model.Content)
         </dd>
 
-        @*<dt>
-                @Html.DisplayNameFor(model => model.AuthorId)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthorId)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.AuthorId)
-            </dd>*@
+        <dd>
+            by @Html.DisplayFor(model => model.AuthorId)
+        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Points)
@@ -91,13 +133,12 @@
             @Html.DisplayFor(model => model.ModifiedUtc)
         </dd>
 
-    </dl>
+    </dl>*@
 
 </div>
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.ArticleId }) |*@
-    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Back", "Index") |
     @*@Html.ActionLink("Comment", "Create", new { id = Model.ArticleId })*@
-    @Html.ActionLink("Write a Comment", "Create", "Comment", new { ArticleId = Model.ArticleId }, null)
+    @Html.ActionLink("Comment", "Create", "Comment", new { ArticleId = Model.ArticleId }, null)
 </p>
-

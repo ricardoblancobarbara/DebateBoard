@@ -7,13 +7,13 @@ namespace DebateBoard.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class BioAdded1 : IMigrationMetadata
+    public sealed partial class NameChanged : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(BioAdded1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(NameChanged));
         
         string IMigrationMetadata.Id
         {
-            get { return "202101142045250_BioAdded1"; }
+            get { return "202101261434293_NameChanged"; }
         }
         
         string IMigrationMetadata.Source

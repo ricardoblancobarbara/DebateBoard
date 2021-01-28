@@ -10,12 +10,12 @@ namespace DebateBoard.Models.Bio
     {
         public int BioId { get; set; }
 
-        public string Title { get; set; }
+        public string Name { get; set; }
 
-        public string Content { get; set; }
+        public string Biography { get; set; }
 
         public int Points { get; set; }
-
+        
         public DateTimeOffset CreatedUtc { get; set; }
 
         public DateTimeOffset? ModifiedUtc { get; set; }

@@ -67,8 +67,8 @@ namespace DebateBoard.Controllers
                 new BioEdit
                 {
                     BioId = detail.BioId,
-                    Title = detail.Title,
-                    Content = detail.Content,
+                    Name = detail.Name,
+                    Biography = detail.Biography,
                     Points = detail.Points,
                     CreatedUtc = detail.CreatedUtc,
                     ModifiedUtc = detail.ModifiedUtc

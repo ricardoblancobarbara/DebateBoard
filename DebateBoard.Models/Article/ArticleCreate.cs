@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DebateBoard.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,7 +10,10 @@ namespace DebateBoard.Models
 {
     public class ArticleCreate
     {
+        //public int ArticleId { get; set; }
+
         public string Category { get; set; }
+
         public string Subject { get; set; }
 
         [Required]
@@ -27,6 +31,8 @@ namespace DebateBoard.Models
         public string Content { get; set; }
 
         public Guid AuthorId { get; set; }
+        //public string AuthorId { get; set; }
+        //public virtual ApplicationUser ApplicationUser { get; set; }
 
         public int Points { get; set; }
 
@@ -34,6 +40,4 @@ namespace DebateBoard.Models
 
         public DateTimeOffset ModifiedUtc { get; set; }
     }
-
-
 }

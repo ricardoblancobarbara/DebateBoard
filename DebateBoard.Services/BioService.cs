@@ -23,9 +23,11 @@ namespace DebateBoard.Services
         {
             var entity = new Bio()
             {
-                Title = model.Title,
-                Content = model.Content,
+                BioId = model.BioId,
+                Name = model.Name,
+                Biography = model.Biography,
                 Id = _userId.ToString(),
+                //Id = model.ApplicationUser.,
                 Points = model.Points,
                 CreatedUtc = DateTimeOffset.Now,
                 ModifiedUtc = model.ModifiedUtc
@@ -51,9 +53,10 @@ namespace DebateBoard.Services
                                 new BioList
                                 {
                                     BioId = e.BioId,
-                                    Title = e.Title,
-                                    Content = e.Content,
-                                    Id = _userId.ToString(),
+                                    Name = e.Name,
+                                    Biography = e.Biography,
+                                    //Id = _userId.ToString(),
+                                    Id = e.ApplicationUser.UserName,
                                     Points = e.Points,
                                     CreatedUtc = e.CreatedUtc,
                                     ModifiedUtc = e.ModifiedUtc
@@ -79,9 +82,9 @@ namespace DebateBoard.Services
                     new BioDetail
                     {
                         BioId = entity.BioId,
-                        Title = entity.Title,
-                        Content = entity.Content,
-
+                        Name = entity.Name,
+                        Biography = entity.Biography,
+                        Id = entity.ApplicationUser.UserName,
                         Points = entity.Points,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
@@ -100,8 +103,8 @@ namespace DebateBoard.Services
                         //.Single(e => e.CommentId == model.CommentId && e.AuthorId == _userId);
                         .Single(e => e.BioId == model.BioId);
 
-                entity.Title = model.Title;
-                entity.Content = model.Content;
+                entity.Name = model.Name;
+                entity.Biography = model.Biography;
                 entity.Points = model.Points;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,16 +11,19 @@ namespace DebateBoard.Models.Bio
     {
         public int BioId { get; set; }
 
-        public string Title { get; set; }
+        public string Name { get; set; }
 
-        public string Content { get; set; }
+        public string Biography { get; set; }
 
+        [Display(Name = "Author")]
         public string Id { get; set; }
 
         public int Points { get; set; }
 
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
 
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
 
     }

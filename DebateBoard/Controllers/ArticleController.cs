@@ -115,6 +115,7 @@ namespace DebateBoard.Controllers
         private ArticleService CreateArticleService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
+            //var userId = User.Identity.GetUserId();
             var service = new ArticleService(userId);
             return service;
         }

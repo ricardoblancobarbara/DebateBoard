@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index: List of Articles</h2>
+<h2>All the Articles</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -20,11 +20,35 @@
     </div>
 }
 
-<table class="table">
+
+@foreach (var item in Model)
+{
+    <hr />
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="col-md-4 col-sm-4 col-xs-12 image-container">
+            <img class="img-responsive" object-fit: cover height: auto src="~/Content/Images/Williams_Farrell.jpg" alt="Williams Farrell">
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+            <h6>by @Html.DisplayFor(modelItem => item.AuthorId)</h6>
+            <h3 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h3>
+            <h4 class="card-subtitle">@Html.DisplayFor(modelItem => item.SubTitle)</h4>
+            <p></p>
+            <h6>
+                @Html.ActionLink("Read more", "Details", new { id = item.ArticleId }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.ArticleId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ArticleId })
+            </h6>
+        </div>
+    </div>
+}
+
+
+@*<table class="table">
+
     <tr>
-        @*<th>
+        <th>
             @Html.DisplayNameFor(model => model.ArticleId)
-        </th>*@
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
@@ -49,9 +73,9 @@
     @foreach (var item in Model)
     {
         <tr>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.ArticleId)
-                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.ArticleId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
@@ -78,4 +102,5 @@
         </tr>
     }
 
-</table>
+</table>*@
+

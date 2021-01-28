@@ -72,6 +72,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DebateBoard.Data\DebateBoard.Data.csproj">
+      <Project>{62d98081-f81b-467f-aed0-f0d0a0931393}</Project>
+      <Name>DebateBoard.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
